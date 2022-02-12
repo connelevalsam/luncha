@@ -36,7 +36,7 @@ class LunchaTheme {
       fontWeight: FontWeight.w700,
       color: Colors.orange,
     ),
-    headline1: GoogleFonts.aBeeZee(
+    headline1: GoogleFonts.openSans(
       fontSize: 32.0,
       fontWeight: FontWeight.w700,
       color: Colors.orange,

@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:luncha/screens/lunchi/home.dart';
+import 'package:luncha/api/mock_luncha_services.dart';
+import 'package:luncha/providers/user_provider.dart';
 import 'package:luncha/screens/user/home.dart';
 import 'package:luncha/themes/luncha_theme.dart';
 import 'package:luncha/widgets.dart';
+import 'package:provider/provider.dart';
+
+import '../navigation.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -15,26 +19,37 @@ class _LoginScreenState extends State<LoginScreen> {
   var txtID = TextEditingController();
   var err = 0, errText = "";
 
-  void loginCheck() {
+  final mockService = MockLunchaServices();
+
+  void loginCheck() async {
+    var result = await mockService.getUserData();
     String id = txtID.text;
     setState(() {
       err = 0;
       errText = "";
     });
-    if (id == "test") {
+    var r = result.firstWhere((element) => element.passCode == id);
+    if (r != null) {
       print("user successfully logged in");
+      Provider.of<UserProvider>(context, listen: false)
+          .addUser(r.id, r.passCode, r.profile);
+      print(err);
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (_) => UserHomePage()));
     } else if (id == "next") {
       print("lunchi successfully logged in");
-      Navigator.push(
-          context, MaterialPageRoute(builder: (_) => LunchiHomePage()));
-    } else
+      print(err);
+      Navigator.pushReplacementNamed(
+        context,
+        lunchiHome,
+      );
+    } else {
       print("invalid details");
-    setState(() {
-      err = 1;
-      errText = "invalid details";
-    });
+      setState(() {
+        err = 1;
+        errText = "invalid details";
+      });
+    }
   }
 
   @override
@@ -97,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(
                       height: 10,
                     ),
-                    (err == 0)
+                    err == 0
                         ? Container()
                         : Text(
                             errText,
