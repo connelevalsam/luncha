@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "pass_code": "test1234",
+      "profile": [
+        {
+          "name": "Cesare Haz",
+          "address": "Bankole Street",
+          "phone": "07032145698",
+          "image_url": "assets/images/person_cesare.jpeg"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "pass_code": "test4321",
+      "profile": [
+        {
+          "name": "Joe Khan",
+          "address": "Eze Street",
+          "phone": "07032145698",
+          "image_url": "assets/images/person_joe.jpeg"
+        }
+      ]
+    }
+  ]
+}

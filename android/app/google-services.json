@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "925041180719",
+    "project_id": "luncha-af787",
+    "storage_bucket": "luncha-af787.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:925041180719:android:3db8af1295ca640f2cc6da",
+        "android_client_info": {
+          "package_name": "com.cb.luncha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "925041180719-j9m4ftk9ci675kmc5u7m383djjnplkm4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsT-eazHKUhtmYqB8puEEgwPJH5wAC9uU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "925041180719-j9m4ftk9ci675kmc5u7m383djjnplkm4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
